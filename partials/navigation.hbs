@@ -1,0 +1,38 @@
+<ul class="nav links">
+    {{#foreach navigation}}
+        {{!-- SUBMENU PARENT --}}
+        {{#match label "~^" "#"}}
+            <li>
+                <a href="{{url}}"> {{#split label separator="#"}}
+                        {{this}}
+                    {{/split}}</a>
+                <i class="bx bxs-chevron-down arrow"></i>
+                <ul class="sub-menu">
+        {{!-- Closing and NORMAL ITEM --}}
+            {{else match label "~^" "+"}}
+      
+                        </ul>
+                    </li>
+                 <li> <a href="{{url}}"> {{#split label separator="+"}}
+                        {{this}}
+                    {{/split}}</a></li>
+
+
+        {{!-- SUBMENU ITEM (label starts with "-") --}}
+        {{else match label "~^" "-"}}
+            <li>
+                <a href="{{url}}">
+                    {{!-- remove leading "-" using split --}}
+                    {{#split label separator="-"}}
+                        {{this}}
+                    {{/split}}
+                </a></li>
+
+               
+            {{else}}
+                 <li></li><a href="{{url}}">{{label}}</a></li>
+            
+        {{/match}}
+
+    {{/foreach}}
+</ul>
