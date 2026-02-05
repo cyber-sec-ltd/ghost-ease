@@ -6,8 +6,8 @@
                 <a href="{{url}}"> {{#split label separator="#"}}
                         {{this}}
                     {{/split}}</a>
-                <i class="bx bxs-chevron-down arrow"></i>
-                <ul class="sub-menu">
+                <i class="bx bxs-chevron-down arrow htmlcss-arrow"></i>
+                <ul class="nav sub-menu">
         {{!-- Closing and NORMAL ITEM --}}
             {{else match label "~^" "+"}}
       
@@ -17,20 +17,19 @@
                         {{this}}
                     {{/split}}</a></li>
 
-
-        {{!-- SUBMENU ITEM (label starts with "-") --}}
-        {{else match label "~^" "-"}}
-            <li>
-                <a href="{{url}}">
-                    {{!-- remove leading "-" using split --}}
-                    {{#split label separator="-"}}
+            {{else match label "~^" ">"}}
+            <li class="more">
+                <a href="{{url}}"> {{#split label separator=">"}}
                         {{this}}
-                    {{/split}}
-                </a></li>
+                    {{/split}}</a>
+                <i class="bx bxs-chevron-right arrow more-arrow"></i>
+                
+                <ul class="nav sub-menu more-sub-menu">
 
-               
-            {{else}}
-                 <li></li><a href="{{url}}">{{label}}</a></li>
+        
+
+                {{else}}
+                    <li> <a href="{{url}}">{{label}}</a></li>
             
         {{/match}}
 
