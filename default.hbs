@@ -78,7 +78,7 @@
     </header>
 
     {{#is "home"}}
-    <div class="site-cover{{#unless @site.cover_image}} no-image{{/unless}} u-overlay">
+    <div class="site-cover{{#unless @site.cover_image}} no-image{{/unless}} ">
 
         {{#if @site.cover_image}}
             <img class="cover-image jarallax-img u-object-fit" src="{{img_url @site.cover_image}}" alt="{{@site.title}}">
