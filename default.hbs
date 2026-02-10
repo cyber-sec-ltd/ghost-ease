@@ -24,7 +24,7 @@
                         <iframe src="https://cyber-sec.screenconnect.com/?theme=embedded" style="margin-top:-80px;margin-left:-20px" height="280" scrolling="no">
                         </iframe>
                         </div>
-                        <div style="padding-top:10px;">For more support options <a class="cs-remote-options" href="#">Click here</a></div>
+                        <div style="padding-top:10px; padding-bottom:10px;">For more support options <a href="/remote-support" class="cs-remote-options">Click here</a></div>
                     </div>
             </div>
         </div>
@@ -85,9 +85,9 @@
         {{/if}}
 
         <div class="site-content gh-outer">
-            {{#get "posts" id="6989fea028cab547a8850bf2" include="tags,authors" as |post|}}
+            {{#get "posts" filter="slug:homebrief" as |post|}}
                 {{#post}}
-                    <h1 class="gh-article-title">{{title}}</h1>
+                    <h1  class="gh-article-title">{{title}}</h1>
                       <div class="gh-content gh-canvas">
             {{content}}
         </div>
