@@ -84,13 +84,13 @@
             <img class="cover-image jarallax-img u-object-fit" src="{{img_url @site.cover_image}}" alt="{{@site.title}}">
         {{/if}}
 
-        <div class="site-content gh-outer">
+        <div class="site-content gh-inner cs-homebrief-box">
             {{#get "posts" filter="slug:homebrief" as |post|}}
                 {{#post}}
-                    <h1  class="gh-article-title">{{title}}</h1>
-                      <div class="gh-content gh-canvas">
-            {{content}}
-        </div>
+                    <h1>{{title}}</h1>
+                      <div class="gh-content ">
+                        {{content}}
+                       </div>
                 {{/post}}
             {{/get}}
         </div>
