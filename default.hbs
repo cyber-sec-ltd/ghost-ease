@@ -14,14 +14,14 @@
 <div class="site">
 
     <header id="gh-head" class="gh-head gh-outer">
-       <div class="cs-remote" ><div class="gh-head-logo" >Call: 0203 880 1775 </div>
+       <div class="cs-remote" ><div class="cs-remote-call gh-head-logo" >Call: 0203 880 1775 </div>
             <div class="cs-remote-btn">
             <a class="gh-head-btn gh-btn gh-primary-btn" href="#">Remote Support</a>
                 <div class="cs-remote-box">
                         <!-- Your box content here -->
                         <div style="padding-bottom:10px;">Enter your PIN-code to connect with one of our technicians</div>
                         <div style="display:block;overflow:hidden;width:290px;height:110px;">
-                        <iframe src="https://cyber-sec.screenconnect.com/?theme=embedded" style="margin-top:-80px;margin-left:-20px" height="280" scrolling="no">
+                        <iframe src="https://cyber-sec.screenconnect.com/?theme=embedded" sandbox="allow-scripts allow-popups allow-same-origin" style="margin-top:-80px;margin-left:-20px" height="280" scrolling="no">
                         </iframe>
                         </div>
                         <div style="padding-top:10px; padding-bottom:10px;">For more support options <a href="/remote-support" class="cs-remote-options">Click here</a></div>
@@ -78,31 +78,122 @@
     </header>
 
     {{#is "home"}}
-    <div class="site-cover{{#unless @site.cover_image}} no-image{{/unless}} ">
+<div class="site-cover{{#unless @site.cover_image}} no-image{{/unless}} ">
 
         {{#if @site.cover_image}}
             <img class="cover-image jarallax-img u-object-fit" src="{{img_url @site.cover_image}}" alt="{{@site.title}}">
         {{/if}}
-
-        <div class="site-content gh-inner cs-homebrief-box">
-            {{#get "posts" filter="slug:homebrief" as |post|}}
-                {{#post}}
-                    <h1>{{title}}</h1>
-                      <div class="gh-content ">
-                        {{content}}
-                       </div>
-                {{/post}}
-            {{/get}}
-            <a class="topic-more" href="/why-choose-us">Find out more →</a>
-        </div>
-
+    <div class="site-content">
+        <div class="gh-outer">
+            <main class="site-main gh-inner">
+                <div class="cs-cover-content">
+                    <div class="cs-homebrief-box">
+                        {{#get "posts" filter="slug:homebrief" as |post|}}
+                            {{#post}}
+                                <h1>{{title}}</h1>
+                                <div class="gh-content ">
+                                    {{content}}
+                                </div>
+                            {{/post}}
+                        {{/get}}
+                        <a class="topic-more cs-home-topic-more" href="/why-choose-us">Find out more →</a>
+                        <div class="cs-home-logos">
+                        {{#get "posts" filter="tag:logos" as |post|}}
+                            {{#post}}
+                                <div class="gh-content">
+                                    {{content}}
+                                </div>
+                            {{/post}}
+                        {{/get}}
+                        </div>
+                    </div>
+                    <div class="testimonial-container">
+                        {{#get "posts" filter="tag:testimonials" as |post|}}
+                        {{#post}}
+                                <div class="testimonial-slide active">
+                                    <p>
+                                    <img align="left" width="20" height="20" src="https://bekic.net/content/images/custom/quotation-mark-white-icon.png" >
+                                    {{content}}</p>                    
+                                    <h5>{{title}}</h5>
+                                </div>
+                            {{/post}}
+                        {{/get}}
+                        
+                        <!-- Navigation Dots -->
+                        <div class="dot-container">
+                            <span class="dot active" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                        </div>   
+                    </div>
+                </div>
+            </main>
+        </div>   
     </div>
-    {{/is}}
+</div>
 
+<div class="site-content">  
+    <div class="gh-outer">
+        <main class="site-main gh-inner">
+        {{#get "posts" filter="tag:services" limit="4" include="tags" as |featured|}}
+        {{#if featured}}
+        <section class="post-wrapper">
+
+            <header class="featured-header topic-header">
+                <h2 class="featured-title topic-name">Services</h2>
+            </header>
+
+            <div class="topic-article-feed">
+            {{#foreach featured}}
+                <article class="{{post_class}}">
+
+                    <figure class="post-media">
+                    <div class="u-placeholder same-height horizontal">
+                        <a class="post-image-link" href="{{url}}">
+                            {{#if feature_image}}
+                                <img class="post-image u-object-fit" src="{{img_url feature_image size="l"}}" alt="{{title}}">
+                            {{/if}}
+                        </a>
+                    </div>
+                    </figure>
+
+                    <header class="post-header">
+                        <h2 class="post-title">
+                            <a class="post-title-link" href="{{url}}">{{title}}</a>
+                        </h2>
+                        <p>{{excerpt}}</p>
+                    </header>
+
+
+                    {{#primary_tag}}
+                        <a class="post-tag tag-{{slug}}" href="{{url}}" title="{{name}}">{{name}}</a>
+                    {{/primary_tag}}
+
+                </article>
+            {{/foreach}}
+            </div>
+
+        </section>
+        {{/if}}
+        {{/get}}
+            <div class="cs-contact">
+                {{#get "posts" filter="slug:contact-home-page" as |post|}}
+                            {{#post}}
+                                <div class="gh-content ">
+                                    {{content}}
+                                </div>
+                            {{/post}}
+                        {{/get}}
+            </div>
+        </main>
+    </div>
+</div>
+{{/is}}
+{{^is "home"}}
     <div class="site-content">
         {{{body}}}
     </div>
-
+{{/is}}
     <footer class="gh-foot{{#unless @site.secondary_navigation}} no-menu{{/unless}} gh-outer">
         <div class="gh-foot-inner gh-inner">
             <div class="gh-copyright">
@@ -114,7 +205,7 @@
                 </nav>
             {{/if}}
             <div class="gh-powered-by">
-                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a>
+                <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Sid</a>
             </div>
         </div>
     </footer>
