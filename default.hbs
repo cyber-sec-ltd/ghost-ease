@@ -110,7 +110,7 @@
                     <div class="testimonial-container">
                         {{#get "posts" filter="tag:testimonials" as |post|}}
                         {{#post}}
-                                <div class="testimonial-slide active">
+                                <div class="testimonial-slide">
                                     <p>
                                     <img align="left" width="20" height="20" src="/content/images/custom/quotation-mark-white-icon.png" >
                                     {{content}}</p>                    
@@ -125,6 +125,7 @@
                             <span class="dot" onclick="currentSlide(2)"></span>
                             <span class="dot" onclick="currentSlide(3)"></span>
                             <span class="dot" onclick="currentSlide(4)"></span>
+                            <span class="dot" onclick="currentSlide(5)"></span>
                         </div>   
                     </div>
                 </div>
