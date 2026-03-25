@@ -26,7 +26,7 @@
         <nav class="pagination">
 
             <div class="pagination-left">
-                {{#prev_post}}
+                {{#prev_post in="primary_tag"}}
                     <a class="newer-posts" href="{{url}}">
                         <span class="pagination-label">Previous</span>
                         {{title}}
@@ -35,7 +35,7 @@
             </div>
 
             <div class="pagination-right">
-                {{#next_post}}
+                {{#next_post in="primary_tag"}}
                     <a class="older-posts" href="{{url}}">
                         <span class="pagination-label">Next</span>
                         {{title}}
