@@ -19,7 +19,11 @@
         </header>
         -->
         <div class="gh-content gh-canvas">
-            {{content}}
+            {{#get "posts" filter="tag:team"}}
+                {{#foreach posts}}
+                    {{> "loop-team"}}
+                {{/foreach}}
+            {{/get}}
         </div>
 
         <div class="pagination-container gh-canvas">
