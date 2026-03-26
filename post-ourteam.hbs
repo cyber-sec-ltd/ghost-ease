@@ -5,19 +5,19 @@
     {{#post}}
         
     <article class="{{post_class}}">
-       <!-- 
+      
         <header class="gh-article-header gh-canvas">
           {{#has tag="title disable"}}
           {{else}}
-            <h1 class="gh-article-title">{{title}}</h1>
-            <div class="post-meta">
+            <h1 class="gh-article-title">Our Team</h1>
+           <!-- <div class="post-meta">
                 Last updated on&nbsp;
                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date updated_at format="DD MMM YYYY"}}</time>
-            </div>
+            </div> -->
           {{/has}}
-            {{> "post-image"}}
+            <!--  {{> "post-image"}} -->
         </header>
-        -->
+        
         <div class="gh-content gh-canvas post-feed">
             {{#get "posts" filter="tag:team"}}
                 {{#foreach posts}}
