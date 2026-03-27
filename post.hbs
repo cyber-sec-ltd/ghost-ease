@@ -3,57 +3,65 @@
 <main class="site-main">
 
     {{#post}}
-        
-    <article class="{{post_class}}">
-        
-        <header class="gh-article-header gh-canvas">
-          {{#has tag="title disable"}}
-          {{else}}
-            <h1 class="gh-article-title">{{title}}</h1>
-            <!-- <div class="post-meta">
-                Last updated on&nbsp;
-                <time datetime="{{date format="YYYY-MM-DD"}}">{{date updated_at format="DD MMM YYYY"}}</time>
-            </div> -->
-          {{/has}}
-            {{> "post-image"}}
-        </header>
+        {{#match primary_tag.slug "=" "blog"}}
+            {{> "post-blog"}}
+        {{else}}
+            <article class="{{post_class}}">
+                
+                <header class="gh-article-header gh-canvas">
+                    <div class="cs-image-container">
+                        {{> "post-image-overlay"}}
+                        <div class="cs-text-overlay">
+                            {{#has tag="title disable"}}
+                                {{else}}
+                                    <h1 class="gh-article-title">{{title}}</h1>
+                                    <!-- <div class="post-meta">
+                                        Last updated on&nbsp;
+                                        <time datetime="{{date format="YYYY-MM-DD"}}">{{date updated_at format="DD MMM YYYY"}}</time>
+                                    </div> -->
+                            {{/has}}
+                            <div class="gh-content">
+                                {{excerpt}}
+                            </div>
+                        </div>
+                    </div>
+                </header>
 
-        <div class="gh-content gh-canvas">
-            {{content}}
-        </div>
+                <div class="gh-content gh-canvas">
+                    {{content}}
+                </div>
 
-        <div class="pagination-container gh-canvas">
-        <nav class="pagination">
+                <div class="pagination-container gh-canvas">
+                <nav class="pagination">
 
-            <div class="pagination-left">
-                {{#prev_post in="primary_tag"}}
-                    <a class="newer-posts" href="{{url}}">
-                        <span class="pagination-label">Previous</span>
-                        {{title}}
-                    </a>
-                {{/prev_post}}
-            </div>
+                    <div class="pagination-left">
+                        {{#prev_post in="primary_tag"}}
+                            <a class="newer-posts" href="{{url}}">
+                                <span class="pagination-label">Previous</span>
+                                {{title}}
+                            </a>
+                        {{/prev_post}}
+                    </div>
 
-            <div class="pagination-right">
-                {{#next_post in="primary_tag"}}
-                    <a class="older-posts" href="{{url}}">
-                        <span class="pagination-label">Next</span>
-                        {{title}}
-                    </a>
-                {{/next_post}}
-            </div>
+                    <div class="pagination-right">
+                        {{#next_post in="primary_tag"}}
+                            <a class="older-posts" href="{{url}}">
+                                <span class="pagination-label">Next</span>
+                                {{title}}
+                            </a>
+                        {{/next_post}}
+                    </div>
 
-        </nav>
-        </div>
+                </nav>
+                </div>
 
-        {{#if comments}}
-            <div class="gh-comments gh-canvas">
-                {{comments}}
-            </div>
-        {{/if}}
-
-    </article>
-
+                {{#if comments}}
+                    <div class="gh-comments gh-canvas">
+                        {{comments}}
+                    </div>
+                {{/if}}
+            </article>
+        {{/match}}
     {{/post}}
 
 </main>
