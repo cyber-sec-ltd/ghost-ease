@@ -1,6 +1,6 @@
 <article class="{{post_class}}">
 
-    <a class="post-link u-permalink" href="{{url}}"></a>
+    <!-- <a class="post-link u-permalink" href="{{url}}"></a> -->
 
      {{#if feature_image}}
         <figure class="post-media">
@@ -14,12 +14,22 @@
 
     <div class="post-wrapper">
         <header class="post-header">
-            <h2 class="post-title cs-team-post-title">{{title}}</h2>
+            <a class="post-link" href="{{url}}">
+                <h2 class="post-title cs-team-post-title">{{title}}</h2>
+            </a>
         </header>
-        <div class="post-excerpt">
-            {{excerpt words="10"}}
-        </div>
+        <a class="post-link" href="{{url}}">
+            <div class="post-excerpt">
+                    {{excerpt}}
+            </div>
+        </a>
         {{!-- {{> post-meta}} --}}
+                {{#match slug "=" "service-cyber-security"}}
+                    {{#primary_tag}}
+                        <a class="post-tag tag-{{slug}}" href="{{url}}" title="{{name}}">{{name}}</a>
+                    {{/primary_tag}}
+                {{/match}}
     </div>
 
 </article>
+     
