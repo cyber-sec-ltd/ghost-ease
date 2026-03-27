@@ -1,0 +1,27 @@
+{{!< default}}
+
+<main class="site-main gh-outer">
+
+
+    {{#tag}}
+  
+    <div class="term-container gh-canvas">
+        <section class="term">
+            <h1 class="term-name">{{name}}</h1>
+            {{#if description}}
+                <div class="term-description">{{description}}</div>
+            {{/if}}
+        </section>
+    </div>
+    {{/tag}}
+
+ {{#get "posts" filter="tag:cyber-security"}}
+    <div class="post-feed gh-inner cs-tag-loop-grid">
+        {{#foreach posts}}
+            {{> "loop"}}
+        {{/foreach}}
+    </div>
+{{/get}}
+    {{pagination}}
+
+</main>
