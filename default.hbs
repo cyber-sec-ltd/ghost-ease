@@ -60,7 +60,7 @@
                         <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
                     {{/match}}
                 {{else}}
-                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                   <!-- <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button> -->
                     <div class="gh-head-members"> 
                         {{#unless @member}}
                             {{#unless @site.members_invite_only}}
@@ -165,8 +165,8 @@
                         <h2 class="post-title">
                             <a class="post-title-link" href="{{url}}">{{title}}</a>
                         </h2>
-                        <p>{{excerpt}}</p>
-                    </header>
+                        <div class="cs-excerpt">{{excerpt}}</div>
+                     </header>
 
 
                     {{#primary_tag}}
@@ -180,7 +180,17 @@
         </section>
         {{/if}}
         {{/get}}
-            <div class="cs-contact">
+            <div class="cs-contact-wrap">
+                       {{#get "posts" filter="tag:faq" limit="2" include="tags" as |featured|}}
+                             {{#foreach featured}}
+                                <div class="gh-content ">
+                                    <h2>{{title}}</h2>
+                                    {{content}}
+                                </div>
+                            {{/foreach}}
+                        {{/get}}
+            </div>
+            <div class="cs-contact-wrap">
                 {{#get "posts" filter="slug:contact-home-page" as |post|}}
                             {{#post}}
                                 <div class="gh-content ">
@@ -188,6 +198,19 @@
                                 </div>
                             {{/post}}
                         {{/get}}
+                    <div class="gh-content">
+                        <div style="text-indent: 20px;">Alternatively fill out the form below.</div>
+                        <iframe 
+                            src="https://cs-prod2.powerappsportals.com/Contact-Us/"
+                            width="50%" 
+                            height="600px"
+                            frameborder="0"
+                            scrolling="auto"
+                            allowfullscreen
+                            style="border: none; overflow: hidden;">
+                        </iframe>
+
+                    </div>
             </div>
         </main>
     </div>
@@ -198,6 +221,9 @@
         {{{body}}}
     </div>
 {{/is}}
+
+
+
     <footer class="gh-foot{{#unless @site.secondary_navigation}} no-menu{{/unless}} gh-outer">
         <div class="gh-foot-inner gh-inner">
             <div class="gh-copyright">
