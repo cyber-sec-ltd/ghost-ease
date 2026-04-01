@@ -1,0 +1,35 @@
+<!-- loop-cs helps with CS article exception to show link for CS services -->
+
+<article class="{{post_class}}">
+
+    <!-- <a class="post-link u-permalink" href="{{url}}"></a> -->
+
+     {{#if feature_image}}
+        <figure class="post-media">
+            <div class="u-placeholder same-height rectangle">
+                <a class="post-image-link" href="{{url}}">
+                    <img class="post-image u-object-fit" src="{{img_url feature_image size="l"}}" alt="{{title}}">
+                </a>
+            </div>
+        </figure>
+    {{/if}} 
+
+    <div class="post-wrapper">
+        <header class="post-header">
+            <a class="post-link" href="{{url}}">
+                <h2 class="post-title cs-team-post-title">{{title}}</h2>
+            </a>
+        </header>
+        <a class="post-link" href="{{url}}">
+            <div class="post-excerpt cs-excerpt">
+                    {{excerpt}}
+            </div>
+        </a>
+        {{!-- {{> post-meta}} --}}
+                {{#match slug "=" "service-cyber-security"}}
+                        <a class="post-tag tag-cyber-secuirty" href="/cyber-security" title="Cyber Security Services">Cyber Security Services</a>
+                {{/match}}
+    </div>
+
+</article>
+     
