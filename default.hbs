@@ -167,12 +167,15 @@
                         </h2>
                         <div class="cs-excerpt">{{excerpt}}</div>
                      </header>
-
-
-                    {{#primary_tag}}
-                        <a class="post-tag tag-{{slug}}" href="{{url}}" title="{{name}}">{{name}}</a>
-                    {{/primary_tag}}
-
+                     <!-- cs areticle exception -->
+                    {{#match slug "=" "service-cyber-security"}}
+                        <a class="post-tag tag-cyber-secuirty" href="/cyber-security" title="Cyber Security Services">Cyber Security Services</a>
+                
+                    {{else}}
+                        {{#primary_tag}}
+                            <a class="post-tag tag-{{slug}}" href="{{url}}" title="{{name}}">{{name}}</a>
+                        {{/primary_tag}}
+                    {{/match}}
                 </article>
             {{/foreach}}
             </div>
@@ -222,7 +225,7 @@
     </div>
 {{/is}}
 
-
+	{{> "footer"}}
 
     <footer class="gh-foot{{#unless @site.secondary_navigation}} no-menu{{/unless}} gh-outer">
         <div class="gh-foot-inner gh-inner">
