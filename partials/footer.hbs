@@ -1,0 +1,94 @@
+
+
+<div class="gh-outer cs-footer">
+<main class="site-main gh-inner">
+   
+    <div class="topic-feed  cs-topic-feed">
+            <section class="topic">
+                <header class="topic-header">
+                    <h2 class="topic-name">
+                        <img class="topic-icon" src="/content/images/custom/CyberSec_Logo02a_col+wht-170.png" alt="Cyber Sec Logo">
+                    </h2>
+                </header>
+                <ul class="topic-article-feed cs-topic-article-feed">
+                    <li class="topic-article">
+                        <a href="tel:+44 203 880 1775">0203 880 1775</a>
+                    </li>
+                    <li class="topic-article">
+                        <a href="mailto:info@cyber-sec.uk">info@cyber-sec.uk</a>
+                    </li>
+                    <li class="topic-article">
+                        <a aria-label="Chat on WhatsApp" href="https://wa.me/442038801775?text=Cyber%20Sec%20inquiry" target="_blank" rel="noopener">
+                        <img style="width: 160px; padding-top: 10px;" alt="Chat on WhatsApp" src="/content/images/custom/WhatsAppButtonGreenSmall.png"></a>
+                    </li>
+                </ul>
+            </section>
+        {{#get "tags" filter="slug:[services,cyber-security]" filterlimit="100"}}
+        {{#foreach tags}}
+            <section class="topic">
+                <header class="topic-header">
+                    <h2 class="topic-name">
+                        <a href="{{url}}">{{name}}</a>
+                    </h2>
+                </header>
+                {{#get "posts" order="published_at asc" filter="primary_tag:{{slug}}" limit="10" as |featured|}}
+                    <ul class="topic-article-feed cs-topic-article-feed">
+                        {{#foreach featured}}
+                        <li class="topic-article">
+                            <h3 class="topic-article-title">
+                                <a class="topic-article-link" href="{{url}}">
+                                    {{> "icons/chevron-right"}} {{title}}
+                                </a>
+                            </h3>
+                        </li>
+                        {{/foreach}}
+                    </ul>
+                {{/get}}
+             <!--   <a class="topic-more" href="{{url}}">Show more →</a> -->
+            </section>
+        {{/foreach}}
+        <!-- special Company section -->
+        <section class="topic">
+                <header class="topic-header">
+                    <h2 class="topic-name">
+                        <a href="/about-us">Company</a>
+                    </h2>
+                </header>
+                {{#get "posts" order="published_at asc" filter="tag:company" limit="10" as |featured|}}
+                    <ul class="topic-article-feed cs-topic-article-feed">
+                        {{#foreach featured}}
+                        <li class="topic-article">
+                            <h3 class="topic-article-title">
+                                <a class="topic-article-link" href="{{url}}">
+                                    {{> "icons/chevron-right"}} {{title}}
+                                </a>
+                            </h3>
+                        </li>
+                        {{/foreach}}
+                    </ul>
+                {{/get}}
+             <!--   <a class="topic-more" href="{{url}}">Show more →</a> -->
+            </section>
+            <section class="topic">
+                <header class="topic-header">
+                    <h2 class="topic-name">
+                        <a href="/#get-in-touch">Stay in touch</a>
+                    </h2>
+                </header>
+                <div style="color:white;">Sign up for our newsletter and the latest news from Cyber Sec:</div>
+                <form data-members-form>
+  
+                    <input placeholder="Your name" data-members-name type="name" />
+ 
+                    <input placeholder="Your email" data-members-email type="email" required="true"/>
+ 
+  
+                    <button class="gh-btn" type="submit">Subscribe</button>
+                </form>
+            </section>
+
+    </div>
+    {{/get}}
+
+</main>
+</div>
