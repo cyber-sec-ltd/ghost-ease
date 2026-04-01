@@ -31,7 +31,7 @@
                         <a href="{{url}}">{{name}}</a>
                     </h2>
                 </header>
-                {{#get "posts" order="published_at asc" filter="primary_tag:{{slug}}" limit="10" as |featured|}}
+                {{#get "posts" order="published_at desc" filter="primary_tag:{{slug}}" limit="10" as |featured|}}
                     <ul class="topic-article-feed cs-topic-article-feed">
                         {{#foreach featured}}
                         <li class="topic-article">
@@ -54,7 +54,7 @@
                         <a href="/about-us">Company</a>
                     </h2>
                 </header>
-                {{#get "posts" order="published_at asc" filter="tag:company" limit="10" as |featured|}}
+                {{#get "posts" order="published_at desc" filter="tag:company" limit="10" as |featured|}}
                     <ul class="topic-article-feed cs-topic-article-feed">
                         {{#foreach featured}}
                         <li class="topic-article">
