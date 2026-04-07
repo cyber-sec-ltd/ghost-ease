@@ -104,13 +104,14 @@
  
                     <input placeholder="Your email" data-members-email type="email" required="true"/>
  
-                        
-                   <button class="gh-btn" type="submit">Subscribe</button>
+                     {{> "turnstile"}}   
+                   <button id="submit-btn" class="gh-btn" type="submit" disabled>Subscribe</button>
                    <div class="cs-form-status">
                      <div class="error" data-members-error ></div>
                      <div class="success" data-members-success >Success! Check your email to complete registration.</div>
                      <div class="loading" data-members-loading >Processing ... </div>
                      </div>
+                     
                 </form>
                 
             </section>
