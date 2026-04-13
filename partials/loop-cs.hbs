@@ -19,6 +19,13 @@
             <a class="post-link" href="{{url}}">
                 <h2 class="post-title cs-team-post-title">{{title}}</h2>
             </a>
+            {{#match primary_tag.slug "=" "blog"}}
+            <div class="post-meta">
+                 <span class="gh-card-author">{{#foreach authors}}{{#if @first}}{{name}}{{else}}, {{name}}{{/if}}{{/foreach}},
+                    <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMM YYYY"}}</time>
+                </span>
+            </div> 
+            {{/match}}
         </header>
         <a class="post-link" href="{{url}}">
             <div class="post-excerpt cs-excerpt">
