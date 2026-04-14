@@ -15,7 +15,9 @@
 <div class="site">
 
     <header id="gh-head" class="gh-head gh-outer">
-       <div class="cs-remote" ><div class="cs-remote-call gh-head-logo" >Call: <a href="tel:0203 880 1775">0203 880 1775</a> </div>
+       <div class="cs-remote" >
+            <a class="gh-head-btn gh-btn gh-primary-btn cs-buuton-light-color" href="/#free-sec"><i class="bx bxs-check-shield"></i>Free Security Assessment</a>
+            <div class="cs-remote-call gh-head-logo" >Call: <a href="tel:0203 880 1775">0203 880 1775</a> </div>
             <div class="cs-remote-btn">
             <a class="gh-head-btn gh-btn gh-primary-btn" href="#">Remote Support</a>
                 <div class="cs-remote-box">
@@ -167,7 +169,7 @@
                         </h2>
                         <div class="cs-excerpt">{{excerpt}}</div>
                      </header>
-                     <!-- cs areticle exception -->
+                     <!-- cs article exception -->
                     {{#match slug "=" "service-cyber-security"}}
                         <a class="post-tag tag-cyber-secuirty" href="/cyber-security" title="Cyber Security Services">Cyber Security Services</a>
                 
@@ -183,7 +185,36 @@
         </section>
         {{/if}}
         {{/get}}
-            <div class="cs-contact-wrap">
+        
+            {{#get "posts" filter="slug:free-consultation" as |post|}}
+            {{#post}}
+            <div id="free-sec" style="text-align: center;" class="gh-content gh-cover-content ">
+                        <h2>{{title}}</h2>
+                        {{excerpt}}
+            </div>
+            <div class="cs-cover-content-side">
+
+                                <div class="gh-content ">
+                                    {{content}}
+                                </div>
+
+                    <div class="gh-content">
+                       
+                        <iframe 
+                            src="https://cs-prod2.powerappsportals.com/Free-Security-Assessment/"
+                            width="50%" 
+                            height="800px"
+                            frameborder="0"
+                            scrolling="auto"
+                            allowfullscreen
+                            style="border: none; overflow: hidden;">
+                        </iframe>
+
+                    </div>
+            </div>
+            {{/post}}
+            {{/get}}
+            <div class="cs-cover-content">
                        {{#get "posts" filter="tag:faq" limit="2" include="tags" as |featured|}}
                              {{#foreach featured}}
                                 <div class="gh-content ">
@@ -193,7 +224,7 @@
                             {{/foreach}}
                         {{/get}}
             </div>
-            <div class="cs-contact-wrap">
+            <div class="cs-cover-content">
                 {{#get "posts" filter="slug:contact-home-page" as |post|}}
                             {{#post}}
                                 <div class="gh-content ">
