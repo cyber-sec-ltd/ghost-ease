@@ -141,51 +141,9 @@
 <div class="site-content">  
     <div class="gh-outer">
         <main class="site-main gh-inner">
-        {{#get "posts" filter="tag:services" limit="4" include="tags" as |featured|}}
-        {{#if featured}}
-        <section class="post-wrapper">
 
-            <header class="featured-header topic-header">
-                <h2 class="featured-title topic-name">Services</h2>
-            </header>
+        {{> "article-feed-services"}}
 
-            <div class="topic-article-feed">
-            {{#foreach featured}}
-                <article class="{{post_class}}">
-
-                    <figure class="post-media">
-                    <div class="u-placeholder same-height horizontal">
-                        <a class="post-image-link" href="{{url}}">
-                            {{#if feature_image}}
-                                <img class="post-image u-object-fit" src="{{img_url feature_image size="l"}}" alt="{{title}}">
-                            {{/if}}
-                        </a>
-                    </div>
-                    </figure>
-
-                    <header class="post-header">
-                        <h2 class="post-title">
-                            <a class="post-title-link" href="{{url}}">{{title}}</a>
-                        </h2>
-                        <div class="cs-excerpt">{{excerpt}}</div>
-                     </header>
-                     <!-- cs article exception -->
-                    {{#match slug "=" "service-cyber-security"}}
-                        <a class="post-tag tag-cyber-secuirty" href="/cyber-security" title="Cyber Security Services">Cyber Security Services</a>
-                
-                    {{else}}
-                        {{#primary_tag}}
-                            <a class="post-tag tag-{{slug}}" href="{{url}}" title="{{name}}">{{name}}</a>
-                        {{/primary_tag}}
-                    {{/match}}
-                </article>
-            {{/foreach}}
-            </div>
-
-        </section>
-        {{/if}}
-        {{/get}}
-        
             {{#get "posts" filter="slug:free-consultation" as |post|}}
             {{#post}}
             <div id="free-sec" style="text-align: center;" class="gh-content gh-cover-content ">
@@ -224,6 +182,9 @@
                             {{/foreach}}
                         {{/get}}
             </div>
+
+            {{> "article-feed-blog"}}
+
             <div class="cs-cover-content">
                 {{#get "posts" filter="slug:contact-home-page" as |post|}}
                             {{#post}}
