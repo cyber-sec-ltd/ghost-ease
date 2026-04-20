@@ -1,0 +1,34 @@
+<section class="post-wrapper">
+
+            <header class="featured-header topic-header">
+                <h2 class="featured-title topic-name">Our Techie Blogs</h2>
+            </header>
+            {{#get "posts" filter="tag:blog" limit="4" include="tags" as |featured|}}
+            {{#if featured}}
+            <div class="topic-article-feed">
+            {{#foreach featured}}
+                <article class="{{post_class}}">
+
+                    <figure class="post-media">
+                    <div class="u-placeholder same-height horizontal">
+                        <a class="post-image-link" href="{{url}}">
+                            {{#if feature_image}}
+                                <img class="post-image u-object-fit" src="{{img_url feature_image size="l"}}" alt="{{title}}">
+                            {{/if}}
+                        </a>
+                    </div>
+                    </figure>
+
+                    <header class="post-header">
+                        <h2 class="post-title">
+                            <a class="post-title-link" href="{{url}}">{{title}}</a>
+                        </h2>
+                        <div class="cs-excerpt">{{excerpt}}</div>
+                     </header>
+                    
+                </article>
+            {{/foreach}}
+            </div>
+            {{/if}}
+            {{/get}}
+        </section>
