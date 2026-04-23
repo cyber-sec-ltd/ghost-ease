@@ -10,7 +10,7 @@
                         <img width="170"class="topic-icon" src="/content/images/custom/CyberSec_Logo02a_col+wht.png" alt="Cyber Sec Logo">
                    </h2>
                 </header>
-                <ul class="topic-article-feed cs-topic-article-feed">
+                <ul class="topic-article-feed cs-topic-article-feed-footer">
                     <li class="topic-article">
                         <a href="tel:+44 203 880 1775">0203 880 1775</a>
                     </li>
@@ -40,7 +40,7 @@
                     </h2>
                 </header>
                 {{#get "posts" order="published_at desc" filter="primary_tag:{{slug}}" limit="10" as |featured|}}
-                    <ul class="topic-article-feed cs-topic-article-feed">
+                    <ul class="topic-article-feed cs-topic-article-feed-footer">
                         {{#foreach featured}}
                         <li class="topic-article">
                             <h3 class="topic-article-title">
@@ -63,7 +63,7 @@
                     </h2>
                 </header>
                 {{#get "posts" order="published_at desc" filter="tag:company" limit="10" as |featured|}}
-                    <ul class="topic-article-feed cs-topic-article-feed">
+                    <ul class="topic-article-feed cs-topic-article-feed-footer">
                         {{#foreach featured}}
                         <li class="topic-article">
                             <h3 class="topic-article-title">
