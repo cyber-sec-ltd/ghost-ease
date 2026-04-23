@@ -3,9 +3,9 @@
             <header class="featured-header topic-header">
                 <h2 class="featured-title topic-name">Our Services</h2>
             </header>
-            {{#get "posts" filter="tag:services" limit="4" include="tags" as |featured|}}
+            {{#get "posts" filter="tag:services" limit="6" include="tags" as |featured|}}
             {{#if featured}}
-            <div class="topic-article-feed">
+            <div class="cs-topic-article-feed cs-topic-article-feed-services">
             {{#foreach featured}}
                 <article class="{{post_class}}">
 
