@@ -5,7 +5,7 @@
             </header>
             {{#get "posts" filter="tag:blog" limit="4" include="tags" as |featured|}}
             {{#if featured}}
-            <div class="topic-article-feed">
+            <div class="cs-topic-article-feed">
             {{#foreach featured}}
                 <article class="{{post_class}}">
 
