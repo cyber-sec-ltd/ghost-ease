@@ -7,6 +7,8 @@
             {{> "post-blog"}}
         {{else match primary_tag.slug "=" "case-studies"}}
             {{> "post-case-studies"}}
+        {{else match primary_tag.slug "=" "email"}}
+            {{> "post-case-studies"}}
         {{else}}
             <article class="{{post_class}}">
                 
